@@ -3,23 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="cat.nbacafe.girona.ui.MainActivity">
-
-    <!--<androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <androidx.drawerlayout.widget.DrawerLayout xmlns:android="https://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:fitsSystemWindows="true"
+        android:id="@+id/drawer_layout"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
         tools:openDrawer="start">
 
         <include
-            android:id="@+id/app_bar"
-            layout="@layout/app_bar"
+            layout="@layout/app_bar_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            tools:context="cat.nbacafe.girona.ui.MainActivity">
+
+            <!--<androidx.drawerlayout.widget.DrawerLayout
+                android:id="@+id/drawer_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                tools:openDrawer="start">
+
+                <include
+                    android:id="@+id/app_bar"
+                    layout="@layout/app_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.google.android.material.navigation.NavigationView
+                    android:id="@+id/nav_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:fitsSystemWindows="true"
+                    app:headerLayout="@layout/nav_header"
+                    app:menu="@menu/drawer_menu" />
+            </androidx.drawerlayout.widget.DrawerLayout>-->
+
+            <fragment
+                android:id="@+id/nav_host_fragment"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:navGraph="@navigation/navigation"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
@@ -27,20 +64,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header"
+            app:headerLayout="@layout/nav_header_main"
             app:menu="@menu/drawer_menu" />
-    </androidx.drawerlayout.widget.DrawerLayout>-->
 
-        <fragment
-            android:id="@+id/fragments"
-            android:name="cat.nbacafe.girona.ui.fragments.first.FirstFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>
