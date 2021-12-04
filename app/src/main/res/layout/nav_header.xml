@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navHeader"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="#17408B"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="-60dp"
+        android:src="@drawable/nbalogoround" />
+
+    <TextView
+        android:id="@+id/navHeaderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/salaryman"
+        android:paddingTop="16dp"
+        android:text=""
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="30dp"/>
+
+</LinearLayout>
