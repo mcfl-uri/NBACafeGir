@@ -23,4 +23,9 @@
             android:id="@+id/action_loginFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="cat.nbacafe.girona.ui.fragments.history.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/history_fragment"/>
 </navigation>
