@@ -20,7 +20,6 @@ class HomeFragment : Fragment() {
             R.layout.home_fragment,container,false)
 
 
-
         return binding.root
     }
 
