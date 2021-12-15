@@ -8,8 +8,13 @@ import cat.nbacafe.girona.database.daos.*
 import cat.nbacafe.girona.database.entities.*
 
 @Database(
-    entities = [Beguda::class, Comanda::class, Postre::class, Sandwich::class, Usuari::class],
-    version = 1,
+    entities =
+        [Beguda::class,
+        Comanda::class,
+        Postre::class,
+        Sandwich::class,
+        Usuari::class],
+    version = 2,
     exportSchema = false
 )
 abstract class NbaCafeDB : RoomDatabase() {

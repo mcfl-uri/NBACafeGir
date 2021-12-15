@@ -1,5 +1,6 @@
 package cat.nbacafe.girona.database.entities
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -7,8 +8,14 @@ import androidx.room.PrimaryKey
 data class Comanda(
     @PrimaryKey(autoGenerate = true)
     val idComanda: Int,
+    @ColumnInfo(name = "nom_usuari_comanda")
     var nomUsuariCo: String,
-    var sandwich: Sandwich,
-    var postre: Postre,
-    var beguda: Beguda
+    @ColumnInfo(name = "nom_sandwich_comanda")
+    var sandwichNom: String,
+    @ColumnInfo(name = "nom_postre_comanda")
+    var postreNom: String,
+    @ColumnInfo(name = "nom_beguda_comanda")
+    var begudaNom: String,
+    @ColumnInfo(name = "preu_comanda")
+    var totalComanda: Float
 )

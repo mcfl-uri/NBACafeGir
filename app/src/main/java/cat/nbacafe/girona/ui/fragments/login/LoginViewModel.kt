@@ -1,7 +1,13 @@
 package cat.nbacafe.girona.ui.fragments.login
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import cat.nbacafe.girona.database.NbaCafeDB
 
-class LoginViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class LoginViewModel(application: Application) : AndroidViewModel(application) {
+
+    init {
+        val userDao = NbaCafeDB.getData
+    }
+
 }
