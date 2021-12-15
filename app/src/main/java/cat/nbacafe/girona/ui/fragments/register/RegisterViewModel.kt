@@ -13,4 +13,8 @@ class RegisterViewModel(
         dataSource.insert(usuari)
     }
 
+    private fun userExists(usuari: String) {
+        dataSource.userExists(usuari)
+    }
+
 }
