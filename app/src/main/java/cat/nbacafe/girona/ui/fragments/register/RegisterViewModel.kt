@@ -2,19 +2,25 @@ package cat.nbacafe.girona.ui.fragments.register
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import cat.nbacafe.girona.database.daos.UsuariDao
 import cat.nbacafe.girona.database.entities.Usuari
+import kotlinx.coroutines.launch
 
 class RegisterViewModel(
     private val dataSource: UsuariDao, application: Application
 ) : AndroidViewModel(application) {
 
-    private suspend fun insert(usuari: Usuari) {
-        dataSource.insert(usuari)
+    fun insert(nomUsuari: String, emailUsuari: String, passUsuari: String) {
+        val usuari: Usuari()
+        usuari.nomUsuari = nomUsuari
+        viewModelScope.launch {
+            dataSource.insert(usuari)
+        }
     }
 
-    private fun userExists(usuari: String) {
-        dataSource.userExists(usuari)
+    fun userExists(usuari: String): Boolean {
+        return dataSource.userExists(usuari)
     }
 
 }
