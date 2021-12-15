@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import cat.nbacafe.girona.R
+import cat.nbacafe.girona.database.NbaCafeDB
 import cat.nbacafe.girona.databinding.RegisterFragmentBinding
 
 class RegisterFragment : Fragment() {
@@ -18,7 +19,13 @@ class RegisterFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<RegisterFragmentBinding>(inflater, R.layout.register_fragment, container, false)
 
+        val application = requireNotNull(this.activity).application
+        val dataSource = NbaCafeDB.getInstance(application).usuariDao
+        val viewModelFactory = RegisterViewModelFactory(dataSource, application)
 
+        val registerViewModel = ViewModelProvider(this, viewModelFactory).get(RegisterViewModel::class.java)
+
+        
 
         return binding.root
     }

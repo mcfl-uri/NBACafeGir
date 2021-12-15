@@ -7,7 +7,6 @@ import cat.nbacafe.girona.database.NbaCafeDB
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
-        val userDao = NbaCafeDB.getData
     }
 
 }
