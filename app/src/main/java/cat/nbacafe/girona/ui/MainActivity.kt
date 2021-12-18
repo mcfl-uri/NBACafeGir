@@ -2,8 +2,14 @@ package cat.nbacafe.girona.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -11,12 +17,15 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.databinding.ActivityMainBinding
+import cat.nbacafe.girona.shared.SharedViewModel
+import cat.nbacafe.girona.ui.fragments.user.UserViewModel
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
+    val sharedViewModel: SharedViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +42,14 @@ class MainActivity : AppCompatActivity() {
             R.id.firstFragment, R.id.loginFragment), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val headerView : View = navView.getHeaderView(0)
+        val navUsername : TextView = headerView.findViewById(R.id.navHeaderText)
+        navUsername.setText("Prova")
+
+        sharedViewModel.loggedUser.observe(this, { loggedUser ->
+            navUsername.setText(loggedUser)
+        })
     }
 
     override fun onSupportNavigateUp(): Boolean {

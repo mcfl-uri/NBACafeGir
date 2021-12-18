@@ -24,4 +24,5 @@ class UserViewModel(
     fun checkLogin(usuariNom: String, usuariPass: String): Boolean {
         return dataSource.checkLogin(usuariNom, usuariPass)
     }
+
 }
