@@ -11,7 +11,7 @@ interface UsuariDao {
     @Insert
     suspend fun insert(usuari: Usuari)
 
-    @Query ("SELECT EXISTS(SELECT * FROM Usuari WHERE nomUsuari = :usuariNom)")
+    @Query ("SELECT EXISTS(SELECT * FROM Usuari WHERE nom_usuari = :usuariNom)")
     fun userExists(usuariNom: String): Boolean
 
 }
