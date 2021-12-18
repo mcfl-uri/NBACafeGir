@@ -38,22 +38,42 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
 
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.firstFragment, R.id.loginFragment), drawerLayout)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.firstFragment, R.id.loginFragment
+            ), drawerLayout
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val headerView : View = navView.getHeaderView(0)
-        val navUsername : TextView = headerView.findViewById(R.id.navHeaderText)
+        val headerView: View = navView.getHeaderView(0)
+        val navUsername: TextView = headerView.findViewById(R.id.navHeaderText)
         navUsername.setText("Prova")
 
         sharedViewModel.loggedUser.observe(this, { loggedUser ->
             navUsername.setText(loggedUser)
         })
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+
+            if (destination.id == R.id.firstFragment ||
+                destination.id == R.id.loginFragment ||
+                destination.id == R.id.registerFragment
+            ) {
+
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+
+            } else {
+
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }

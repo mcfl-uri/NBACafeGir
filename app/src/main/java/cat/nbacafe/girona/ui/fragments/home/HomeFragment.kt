@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.databinding.HomeFragmentBinding
 
@@ -19,6 +20,17 @@ class HomeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<HomeFragmentBinding>(inflater,
             R.layout.home_fragment,container,false)
 
+        binding.newComandaButton.setOnClickListener { View ->
+            view?.findNavController()?.navigate(R.id.action_homeFragment_to_sandwichesFragment)
+        }
+
+        binding.newHistoryButton.setOnClickListener { View ->
+            view?.findNavController()?.navigate(R.id.action_homeFragment_to_historyFragment)
+        }
+
+        binding.newCancelaButton.setOnClickListener { View ->
+            view?.findNavController()?.navigate(R.id.action_homeFragment_to_firstFragment)
+        }
 
         return binding.root
     }
