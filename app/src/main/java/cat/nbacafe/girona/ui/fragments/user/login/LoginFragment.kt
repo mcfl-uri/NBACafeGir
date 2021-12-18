@@ -10,10 +10,13 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import cat.nbacafe.girona.NbaCafeApp.Companion.preferences
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.NbaCafeDB
 import cat.nbacafe.girona.databinding.LoginFragmentBinding
+import cat.nbacafe.girona.shared.SharedPreferences
 import cat.nbacafe.girona.shared.SharedViewModel
+import cat.nbacafe.girona.ui.MainActivity
 import cat.nbacafe.girona.ui.fragments.user.UserViewModel
 import cat.nbacafe.girona.ui.fragments.user.UserViewModelFactory
 
@@ -52,6 +55,9 @@ class LoginFragment : Fragment() {
                         binding.loginPassword.text.toString()
                     )
                 ) {
+                    if (binding.checkBox.isChecked) {
+                        preferences.saveName(binding.loginUser.text.toString())
+                    }
                     sharedViewModel.logUser(binding.loginUser.text.toString())
                     view?.findNavController()?.navigate(R.id.action_loginFragment_to_homeFragment)
                 } else {
