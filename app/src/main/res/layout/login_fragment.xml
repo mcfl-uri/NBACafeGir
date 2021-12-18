@@ -6,7 +6,7 @@ xmlns:tools="http://schemas.android.com/tools">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.login.LoginFragment">
+    tools:context=".ui.fragments.user.login.LoginFragment">
 
     <ImageView
         android:id="@+id/background"

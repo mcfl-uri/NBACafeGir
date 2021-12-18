@@ -1,4 +1,4 @@
-package cat.nbacafe.girona.ui.fragments.login
+package cat.nbacafe.girona.ui.fragments.user.login
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -11,8 +11,8 @@ import androidx.navigation.findNavController
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.NbaCafeDB
 import cat.nbacafe.girona.databinding.LoginFragmentBinding
-import cat.nbacafe.girona.ui.fragments.register.RegisterViewModel
-import cat.nbacafe.girona.ui.fragments.register.RegisterViewModelFactory
+import cat.nbacafe.girona.ui.fragments.user.UserViewModel
+import cat.nbacafe.girona.ui.fragments.user.UserViewModelFactory
 
 class LoginFragment : Fragment() {
 
@@ -29,10 +29,10 @@ class LoginFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dataSource = NbaCafeDB.getInstance(application).usuariDao
-        val viewModelFactory = LoginViewModelFactory(dataSource, application)
+        val viewModelFactory = UserViewModelFactory(dataSource, application)
 
-        val registerViewModel =
-            ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
+        val userViewModel =
+            ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
 
         binding.setLifecycleOwner(this)
 

@@ -1,4 +1,4 @@
-package cat.nbacafe.girona.ui.fragments.register
+package cat.nbacafe.girona.ui.fragments.user.register
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.NbaCafeDB
-import cat.nbacafe.girona.database.entities.Usuari
 import cat.nbacafe.girona.databinding.RegisterFragmentBinding
+import cat.nbacafe.girona.ui.fragments.user.UserViewModel
+import cat.nbacafe.girona.ui.fragments.user.UserViewModelFactory
 
 class RegisterFragment : Fragment() {
 
@@ -29,10 +30,10 @@ class RegisterFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dataSource = NbaCafeDB.getInstance(application).usuariDao
-        val viewModelFactory = RegisterViewModelFactory(dataSource, application)
+        val viewModelFactory = UserViewModelFactory(dataSource, application)
 
-        val registerViewModel =
-            ViewModelProvider(this, viewModelFactory).get(RegisterViewModel::class.java)
+        val userViewModel =
+            ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
 
         binding.setLifecycleOwner(this)
 
@@ -46,12 +47,12 @@ class RegisterFragment : Fragment() {
             val password = binding.registerPassword.text.toString()
             val confPassword = binding.confirmPassword.text.toString()
             if (email != "" && username != "") {
-                if (registerViewModel.userExists(username)) {
+                if (userViewModel.userExists(username)) {
                     Toast.makeText(context, "Aquest nom d'usuari ja existeix", Toast.LENGTH_LONG)
                         .show()
                 } else if (password == confPassword) {
 
-                    registerViewModel.insert(username, email, password)
+                    userViewModel.insert(username, email, password)
 
                 } else {
                     Toast.makeText(context, "Les contrassenyes no coincideixen", Toast.LENGTH_LONG)

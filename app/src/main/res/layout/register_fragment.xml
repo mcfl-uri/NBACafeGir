@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragments.login.RegisterFragment">
+        tools:context=".ui.fragments.user.login.RegisterFragment">
 
         <ImageView
             android:id="@+id/background"

@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="cat.nbacafe.girona.ui.fragments.login.LoginFragment"
+        android:name="cat.nbacafe.girona.ui.fragments.user.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/login_fragment">
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="cat.nbacafe.girona.ui.fragments.register.RegisterFragment"
+        android:name="cat.nbacafe.girona.ui.fragments.user.register.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/register_fragment">
         <action
