@@ -12,15 +12,14 @@ class RegisterViewModel(
 ) : AndroidViewModel(application) {
 
     fun insert(nomUsuari: String, emailUsuari: String, passUsuari: String) {
-        val usuari: Usuari()
-        usuari.nomUsuari = nomUsuari
+        val usuari: Usuari(nomUsuari, emailUsuari, passUsuari)
         viewModelScope.launch {
             dataSource.insert(usuari)
         }
     }
 
-    fun userExists(usuari: String): Boolean {
-        return dataSource.userExists(usuari)
+    fun userExists(usuariNom: String): Boolean {
+        return dataSource.userExists(usuariNom)
     }
 
 }

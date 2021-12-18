@@ -51,7 +51,7 @@ class RegisterFragment : Fragment() {
                         .show()
                 } else if (password == confPassword) {
 
-
+                    registerViewModel.insert(username, email, password)
 
                 } else {
                     Toast.makeText(context, "Les contrassenyes no coincideixen", Toast.LENGTH_LONG)

@@ -14,7 +14,7 @@ import cat.nbacafe.girona.database.entities.*
         Postre::class,
         Sandwich::class,
         Usuari::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 abstract class NbaCafeDB : RoomDatabase() {
@@ -38,7 +38,7 @@ abstract class NbaCafeDB : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         NbaCafeDB::class.java,
-                        "sleep_history_database"
+                        "nba_cafe_database"
                     )
                         .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
