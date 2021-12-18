@@ -53,6 +53,7 @@ class RegisterFragment : Fragment() {
                 } else if (password == confPassword) {
 
                     userViewModel.insert(username, email, password)
+                    view?.findNavController()?.navigate(R.id.action_registerFragment_to_firstFragment)
 
                 } else {
                     Toast.makeText(context, "Les contrassenyes no coincideixen", Toast.LENGTH_LONG)
