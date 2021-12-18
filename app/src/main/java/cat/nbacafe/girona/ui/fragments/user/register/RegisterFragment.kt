@@ -46,7 +46,7 @@ class RegisterFragment : Fragment() {
             val username = binding.registerUser.text.toString()
             val password = binding.registerPassword.text.toString()
             val confPassword = binding.confirmPassword.text.toString()
-            if (email != "" && username != "") {
+            if (email != "" && username != "" && password != "") {
                 if (userViewModel.userExists(username)) {
                     Toast.makeText(context, "Aquest nom d'usuari ja existeix", Toast.LENGTH_LONG)
                         .show()
@@ -59,6 +59,9 @@ class RegisterFragment : Fragment() {
                     Toast.makeText(context, "Les contrassenyes no coincideixen", Toast.LENGTH_LONG)
                         .show()
                 }
+            } else {
+                Toast.makeText(context, "Cal omplir totes les dades", Toast.LENGTH_LONG)
+                    .show()
             }
         }
 
