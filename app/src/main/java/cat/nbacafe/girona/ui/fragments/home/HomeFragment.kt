@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import cat.nbacafe.girona.NbaCafeApp.Companion.preferences
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.databinding.HomeFragmentBinding
+import cat.nbacafe.girona.shared.SharedViewModel
 
 class HomeFragment : Fragment() {
 
@@ -29,6 +32,9 @@ class HomeFragment : Fragment() {
         }
 
         binding.newCancelaButton.setOnClickListener { View ->
+            preferences.saveName("")
+            val sharedViewModel: SharedViewModel by activityViewModels()
+            sharedViewModel.logUser(preferences.getName())
             view?.findNavController()?.navigate(R.id.action_homeFragment_to_firstFragment)
         }
 
