@@ -33,7 +33,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:text="Registra't o inicia sessió"
+        android:text="Inicia sessió"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +58,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInici"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintVertical_bias="0.227" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_password"
@@ -75,7 +75,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginUser"
-        app:layout_constraintVertical_bias="0.215"
+        app:layout_constraintVertical_bias="0.192"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/white">
 

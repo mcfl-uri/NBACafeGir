@@ -22,6 +22,10 @@ class FirstFragment : Fragment() {
             view?.findNavController()?.navigate(R.id.action_firstFragment_to_registerFragment)
         }
 
+        binding.iniciaSessioButton.setOnClickListener { View ->
+            view?.findNavController()?.navigate(R.id.action_firstFragment_to_loginFragment)
+        }
+
         return binding.root
     }
 }
