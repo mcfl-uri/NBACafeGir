@@ -12,7 +12,7 @@ class RegisterViewModel(
 ) : AndroidViewModel(application) {
 
     fun insert(nomUsuari: String, emailUsuari: String, passUsuari: String) {
-        val usuari: Usuari(nomUsuari, emailUsuari, passUsuari)
+        val usuari = Usuari(nomUsuari, emailUsuari, passUsuari)
         viewModelScope.launch {
             dataSource.insert(usuari)
         }
