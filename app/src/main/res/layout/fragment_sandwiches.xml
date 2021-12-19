@@ -44,7 +44,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sandwichRecycler"
             android:layout_width="400dp"
-            android:layout_height="150dp"
+            android:layout_height="350dp"
             android:layout_marginTop="80dp"
             app:layout_constraintBottom_toBottomOf="@+id/background"
             app:layout_constraintEnd_toEndOf="parent"
