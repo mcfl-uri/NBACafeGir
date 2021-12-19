@@ -20,12 +20,15 @@ import cat.nbacafe.girona.databinding.ActivityMainBinding
 import cat.nbacafe.girona.shared.SharedViewModel
 import cat.nbacafe.girona.ui.fragments.user.UserViewModel
 import com.google.android.material.navigation.NavigationView
+import android.widget.Toast
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     val sharedViewModel: SharedViewModel by viewModels()
+    var lastPress = System.currentTimeMillis()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +77,16 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        val currentTime = System.currentTimeMillis()
+        if (currentTime - lastPress > 5000) {
+            Toast.makeText(baseContext, "Torna a apretar per sortir", Toast.LENGTH_LONG).show()
+            lastPress = currentTime
+        } else {
+            super.onBackPressed()
+        }
     }
 
 }
