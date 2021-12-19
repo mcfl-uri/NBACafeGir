@@ -29,13 +29,13 @@
         android:text="Title"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/descSandwich"
+        app:layout_constraintBottom_toTopOf="@id/sandwichDesc"
         app:layout_constraintStart_toEndOf="@+id/iconSandwich"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.888" />
 
     <TextView
-        android:id="@+id/descSandwich"
+        android:id="@+id/sandwichDesc"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -53,11 +53,12 @@
         android:id="@+id/sandwichPreu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/salaryman"
         android:text="9.5 €"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toEndOf="@+id/sandwichNom"
         app:layout_constraintTop_toTopOf="parent" />
 

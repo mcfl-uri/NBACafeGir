@@ -3,16 +3,18 @@ package cat.nbacafe.girona.ui.fragments.order.sandwiches
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.entities.Sandwich
 
 class SandwichAdapter (val sandwich: List<Sandwich>) : RecyclerView.Adapter<SandwichAdapter.SandwichHolder>() {
 
-
     class SandwichHolder(val view: View) : RecyclerView.ViewHolder(view) {
         fun render(sandwich: Sandwich) {
-
+            view.findViewById<TextView>(R.id.sandwichNom).setText(sandwich.nomSandwich)
+            view.findViewById<TextView>(R.id.sandwichDesc).setText(sandwich.descSandwich)
+            view.findViewById<TextView>(R.id.sandwichPreu).setText(sandwich.preuSandwich.toString()+" €")
         }
     }
 
