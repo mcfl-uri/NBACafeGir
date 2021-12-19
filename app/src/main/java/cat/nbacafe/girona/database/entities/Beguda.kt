@@ -10,8 +10,6 @@ data class Beguda(
     val idBeguda: Int,
     @ColumnInfo(name = "nom_beguda")
     var nomBeguda: String,
-    @ColumnInfo(name = "desc_beguda")
-    var descBeguda: String,
     @ColumnInfo(name = "preu_beguda")
-    var preuBeguda: Float
+    var preuBeguda: Double
 )

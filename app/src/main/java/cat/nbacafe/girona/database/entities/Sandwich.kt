@@ -13,5 +13,5 @@ data class Sandwich(
     @ColumnInfo(name = "desc_sandwich")
     var descSandwich: String,
     @ColumnInfo(name = "preu_sandwich")
-    var preuSandwich: Float
+    var preuSandwich: Double
 )

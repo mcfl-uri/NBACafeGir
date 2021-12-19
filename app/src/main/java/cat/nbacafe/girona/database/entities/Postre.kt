@@ -13,5 +13,5 @@ data class Postre(
     @ColumnInfo(name = "desc_postre")
     var descPostre: String,
     @ColumnInfo(name = "preu_postre")
-    var preuPostre: Float
+    var preuPostre: Double
 )
