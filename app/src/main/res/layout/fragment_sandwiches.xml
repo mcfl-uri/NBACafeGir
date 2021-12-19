@@ -45,13 +45,15 @@
             android:id="@+id/sandwichRecycler"
             android:layout_width="400dp"
             android:layout_height="350dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintBottom_toBottomOf="@+id/background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textSandwich"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:background="@drawable/layout_bg_transparent"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
