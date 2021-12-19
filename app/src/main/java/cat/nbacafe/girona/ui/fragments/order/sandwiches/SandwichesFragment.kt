@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.NbaCafeDB
 import cat.nbacafe.girona.database.entities.Sandwich
 import cat.nbacafe.girona.databinding.FragmentSandwichesBinding
+import cat.nbacafe.girona.shared.SharedViewModel
 
 class SandwichesFragment : Fragment() {
 
@@ -35,9 +37,12 @@ class SandwichesFragment : Fragment() {
         val sandwichViewModel =
             ViewModelProvider(this, viewModelFactory).get(SandwichViewModel::class.java)
 
+        val sharedViewModel: SharedViewModel by activityViewModels()
+
         sandwiches = sandwichViewModel.getAll()
 
-        binding.sandwichRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.sandwichRecycler.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         val adapter = SandwichAdapter(sandwiches)
         binding.sandwichRecycler.adapter = adapter
@@ -45,6 +50,7 @@ class SandwichesFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
         binding.cancelaComanda.setOnClickListener { View ->
+            sharedViewModel.clearOrder()
             view?.findNavController()?.navigate(R.id.action_sandwichesFragment_to_homeFragment)
         }
 
