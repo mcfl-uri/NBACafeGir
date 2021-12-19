@@ -20,4 +20,12 @@ class SharedViewModel : ViewModel() {
         comanda[posicio] = objecte
     }
 
+    fun removeCourse(posicio: Int) {
+        comanda.remove(posicio)
+    }
+
+    fun clearOrder() {
+        comanda.clear()
+    }
+
 }

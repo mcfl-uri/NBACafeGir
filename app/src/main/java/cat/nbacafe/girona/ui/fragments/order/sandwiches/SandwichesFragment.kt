@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cat.nbacafe.girona.R
@@ -42,6 +43,10 @@ class SandwichesFragment : Fragment() {
         binding.sandwichRecycler.adapter = adapter
 
         binding.setLifecycleOwner(this)
+
+        binding.cancelaComanda.setOnClickListener { View ->
+            view?.findNavController()?.navigate(R.id.action_sandwichesFragment_to_homeFragment)
+        }
 
         return binding.root
     }
