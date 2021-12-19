@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 class UserViewModel(
     private val dataSource: UsuariDao, application: Application
 ) : AndroidViewModel(application) {
+
     fun insert(nomUsuari: String, emailUsuari: String, passUsuari: String) {
         val usuari = Usuari(nomUsuari, emailUsuari, passUsuari)
         viewModelScope.launch {
