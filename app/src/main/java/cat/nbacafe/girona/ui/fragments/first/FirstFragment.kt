@@ -24,8 +24,6 @@ class FirstFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FirstFragmentBinding>(inflater, R.layout.first_fragment, container, false)
 
-
-
         binding.registratButton.setOnClickListener { View ->
             view?.findNavController()?.navigate(R.id.action_firstFragment_to_registerFragment)
         }
