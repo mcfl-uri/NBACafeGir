@@ -16,7 +16,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/sandwich"
-        android:background="@android:color/darker_gray"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
