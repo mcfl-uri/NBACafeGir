@@ -1,60 +1,66 @@
 package cat.nbacafe.girona.ui.fragments.order.drink
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import cat.nbacafe.girona.R
+import cat.nbacafe.girona.database.NbaCafeDB
+import cat.nbacafe.girona.database.entities.Beguda
+import cat.nbacafe.girona.databinding.FragmentDrinkBinding
+import cat.nbacafe.girona.shared.SharedViewModel
+import cat.nbacafe.girona.ui.fragments.order.dessert.DessertAdapter
+import cat.nbacafe.girona.ui.fragments.order.dessert.DessertViewModel
+import cat.nbacafe.girona.ui.fragments.order.dessert.DessertViewModelFactory
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DrinkFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DrinkFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    var drink = listOf<Beguda>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_drink, container, false)
+        val binding = DataBindingUtil.inflate<FragmentDrinkBinding>(
+            inflater,
+            R.layout.fragment_drink, container, false
+        )
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = NbaCafeDB.getInstance(application).begudaDao
+        val viewModelFactory = DrinkViewModelFactory(dataSource, application)
+
+        val drinkViewModel =
+            ViewModelProvider(this, viewModelFactory).get(DrinkViewModel::class.java)
+
+        val sharedViewModel: SharedViewModel by activityViewModels()
+
+        drink = drinkViewModel.getAll()
+
+        binding.drinkRecycler.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        val adapter = DrinkAdapter(drink) {
+            sharedViewModel.addCourse(it.nomBeguda, it.preuBeguda, 0)
+            view?.findNavController()?.navigate(R.id.action_sandwichesFragment_to_dessertFragment)
+        }
+
+        binding.drinkRecycler.adapter = adapter
+
+        binding.setLifecycleOwner(this)
+
+        binding.backToDessert.setOnClickListener { View ->
+            sharedViewModel.removeCourse(2)
+            view?.findNavController()?.navigate(R.id.action_drinkFragment_to_dessertFragment)
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DrinkFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DrinkFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

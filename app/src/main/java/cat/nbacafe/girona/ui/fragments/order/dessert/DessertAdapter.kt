@@ -36,14 +36,14 @@ class DessertAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DessertHolder {
 
-        val sh = DessertHolder(
+        val dh = DessertHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.dessert_cell_layout, parent, false)
         ) {
             clickListener(dessert[it])
         }
 
-        return sh
+        return dh
     }
 
     override fun onBindViewHolder(holder: DessertHolder, position: Int) {

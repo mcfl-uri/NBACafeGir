@@ -88,5 +88,17 @@
         <action
             android:id="@+id/action_dessertFragment_to_sandwichesFragment"
             app:destination="@id/sandwichesFragment" />
+        <action
+            android:id="@+id/action_dessertFragment_to_drinkFragment"
+            app:destination="@id/drinkFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinkFragment"
+        android:name="cat.nbacafe.girona.ui.fragments.order.drink.DrinkFragment"
+        android:label="DrinkFragment"
+        tools:layout="@layout/fragment_drink">
+        <action
+            android:id="@+id/action_drinkFragment_to_dessertFragment"
+            app:destination="@id/dessertFragment" />
     </fragment>
 </navigation>
