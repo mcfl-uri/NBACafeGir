@@ -47,6 +47,7 @@ class SandwichesFragment : Fragment() {
 
         val adapter = SandwichAdapter(sandwiches) {
             sharedViewModel.addCourse(it.nomSandwich, it.preuSandwich, 0)
+            view?.findNavController()?.navigate(R.id.action_sandwichesFragment_to_dessertFragment)
         }
         binding.sandwichRecycler.adapter = adapter
 
