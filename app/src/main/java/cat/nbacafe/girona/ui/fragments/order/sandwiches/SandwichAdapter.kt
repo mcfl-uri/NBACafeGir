@@ -10,7 +10,7 @@ import cat.nbacafe.girona.database.entities.Sandwich
 
 class SandwichAdapter(
     val sandwich: List<Sandwich>,
-    private val clickListener: (String) -> Unit
+    private val clickListener: (Sandwich) -> Unit
 ) :
     RecyclerView.Adapter<SandwichAdapter.SandwichHolder>() {
 
@@ -38,7 +38,7 @@ class SandwichAdapter(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.sandwich_cell_layout, parent, false)
         ) {
-            clickListener(sandwich[it].nomSandwich)
+            clickListener(sandwich[it])
         }
 
         return sh

@@ -46,7 +46,7 @@ class SandwichesFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         val adapter = SandwichAdapter(sandwiches) {
-            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            sharedViewModel.addCourse(it.nomSandwich, it.preuSandwich, 0)
         }
         binding.sandwichRecycler.adapter = adapter
 
