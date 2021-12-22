@@ -42,7 +42,7 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/NBALogo"
-            app:layout_constraintVertical_bias="0.022" />
+            app:layout_constraintVertical_bias="0.047" />
 
         <TextView
             android:id="@+id/comandaUsuari"
@@ -53,10 +53,10 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.169"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/comandaId"
             app:layout_constraintTop_toBottomOf="@+id/textComanda"
-            app:layout_constraintVertical_bias="0.104" />
+            app:layout_constraintVertical_bias="0.129" />
 
         <TextView
             android:id="@+id/comandaId"
@@ -70,18 +70,18 @@
             app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textComanda"
-            app:layout_constraintVertical_bias="0.028" />
+            app:layout_constraintVertical_bias="0.047" />
 
         <ScrollView
             android:id="@+id/scrollComanda"
             android:layout_width="match_parent"
-            android:layout_height="260dp"
+            android:layout_height="230dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/comandaUsuari"
-            app:layout_constraintVertical_bias="0.302">
+            app:layout_constraintVertical_bias="0.265">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -92,7 +92,9 @@
                     android:layout_height="match_parent"
                     android:gravity="center">
 
-                    <include layout="@layout/sandwich_cell_layout" />
+                    <include
+                        android:id="@+id/sandwichIncluded"
+                        layout="@layout/sandwich_cell_layout" />
                 </TableRow>
 
                 <TableRow
@@ -101,7 +103,9 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center">
 
-                    <include layout="@layout/dessert_cell_layout" />
+                    <include
+                        android:id="@+id/dessertincluded"
+                        layout="@layout/dessert_cell_layout" />
                 </TableRow>
 
                 <TableRow
@@ -110,14 +114,16 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center">
 
-                    <include layout="@layout/drink_cell_layout" />
+                    <include
+                        android:id="@+id/drinkIncluded"
+                        layout="@layout/drink_cell_layout" />
                 </TableRow>
             </TableLayout>
         </ScrollView>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/cancelaButton"
-            android:layout_width="175dp"
+            android:id="@+id/cancelaComanda"
+            android:layout_width="185dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
             android:background="@drawable/rounded_button"
@@ -128,25 +134,25 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollComanda"
             app:layout_constraintVertical_bias="1.0" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/endavantButton"
-            android:layout_width="175dp"
+            android:id="@+id/confirmaComanda"
+            android:layout_width="185dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#17408B"
             android:fontFamily="@font/montserrat"
-            android:text="Endavant"
+            android:text="Confirma"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.932"
+            app:layout_constraintHorizontal_bias="0.929"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollComanda"
             app:layout_constraintVertical_bias="1.0" />

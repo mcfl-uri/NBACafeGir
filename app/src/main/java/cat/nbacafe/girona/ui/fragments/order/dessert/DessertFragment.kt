@@ -44,7 +44,7 @@ class DessertFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         val adapter = DessertAdapter(dessert) {
-            sharedViewModel.addCourse(it.nomPostre, it.preuPostre, 0)
+            sharedViewModel.addCourse(it.nomPostre, it.preuPostre, 1)
             view?.findNavController()?.navigate(R.id.action_dessertFragment_to_drinkFragment)
         }
 

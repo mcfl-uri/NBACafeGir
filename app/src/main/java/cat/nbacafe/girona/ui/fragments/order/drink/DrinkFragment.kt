@@ -47,7 +47,7 @@ class DrinkFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         val adapter = DrinkAdapter(drink) {
-            sharedViewModel.addCourse(it.nomBeguda, it.preuBeguda, 0)
+            sharedViewModel.addCourse(it.nomBeguda, it.preuBeguda, 2)
             view?.findNavController()?.navigate(R.id.action_drinkFragment_to_cartFragment)
         }
 

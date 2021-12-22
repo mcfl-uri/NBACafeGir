@@ -1,7 +1,16 @@
 package cat.nbacafe.girona.ui.fragments.cart
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import cat.nbacafe.girona.database.daos.ComandaDao
 
-class CartViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class CartViewModel(
+    private val dataSource: ComandaDao,
+    application: Application
+) : AndroidViewModel(application) {
+
+    fun getIdNova(): Int {
+        return dataSource.getLastComanda()+1
+    }
+
 }
