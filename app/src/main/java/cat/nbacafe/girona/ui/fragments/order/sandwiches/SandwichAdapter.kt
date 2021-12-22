@@ -8,30 +8,40 @@ import androidx.recyclerview.widget.RecyclerView
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.entities.Sandwich
 
-class SandwichAdapter (val sandwich: List<Sandwich>) : RecyclerView.Adapter<SandwichAdapter.SandwichHolder>() {
+class SandwichAdapter(
+    val sandwich: List<Sandwich>,
+    private val clickListener: (String) -> Unit
+) :
+    RecyclerView.Adapter<SandwichAdapter.SandwichHolder>() {
 
     override fun getItemCount() = sandwich.size
 
-    class SandwichHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class SandwichHolder(val view: View, clickPosition: (Int) -> Unit) :
+        RecyclerView.ViewHolder(view) {
         fun bind(sandwich: Sandwich) {
             view.findViewById<TextView>(R.id.sandwichNom).text = sandwich.nomSandwich
             view.findViewById<TextView>(R.id.sandwichDesc).text = sandwich.descSandwich
-            view.findViewById<TextView>(R.id.sandwichPreu).text = (sandwich.preuSandwich.toString()+" €")
+            view.findViewById<TextView>(R.id.sandwichPreu).text =
+                (sandwich.preuSandwich.toString() + " €")
         }
 
-        companion object {
-            fun from(parent: ViewGroup): SandwichHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater
-                    .inflate(R.layout.sandwich_cell_layout, parent, false)
-
-                return SandwichHolder(view)
+        init {
+            itemView.setOnClickListener {
+                clickPosition(adapterPosition)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SandwichHolder {
-        return SandwichHolder.from(parent)
+
+        val sh = SandwichHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.sandwich_cell_layout, parent, false)
+        ) {
+            clickListener(sandwich[it].nomSandwich)
+        }
+
+        return sh
     }
 
     override fun onBindViewHolder(holder: SandwichHolder, position: Int) {
