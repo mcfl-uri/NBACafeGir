@@ -51,7 +51,8 @@
         app:layout_constraintStart_toEndOf="@+id/iconSandwich"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_gravity="center_vertical|end"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="15dp"
+        android:paddingStart="10dp" />
 
     <TextView
         android:id="@+id/sandwichPreu"

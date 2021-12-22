@@ -84,5 +84,9 @@
         android:id="@+id/dessertFragment"
         android:name="cat.nbacafe.girona.ui.fragments.order.dessert.DessertFragment"
         android:label="DessertFragment"
-        tools:layout="@layout/fragment_dessert"/>
+        tools:layout="@layout/fragment_dessert">
+        <action
+            android:id="@+id/action_dessertFragment_to_sandwichesFragment"
+            app:destination="@id/sandwichesFragment" />
+    </fragment>
 </navigation>
