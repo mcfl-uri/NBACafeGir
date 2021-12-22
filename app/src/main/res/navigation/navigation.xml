@@ -100,5 +100,13 @@
         <action
             android:id="@+id/action_drinkFragment_to_dessertFragment"
             app:destination="@id/dessertFragment" />
+        <action
+            android:id="@+id/action_drinkFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="cat.nbacafe.girona.ui.fragments.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/cart_fragment"/>
 </navigation>
