@@ -17,5 +17,5 @@ data class Comanda(
     @ColumnInfo(name = "nom_beguda_comanda")
     var begudaNom: String,
     @ColumnInfo(name = "preu_comanda")
-    var totalComanda: Float
+    var totalComanda: Double
 )

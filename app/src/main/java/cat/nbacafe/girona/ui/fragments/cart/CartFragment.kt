@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.NbaCafeDB
+import cat.nbacafe.girona.database.entities.Comanda
 import cat.nbacafe.girona.databinding.CartFragmentBinding
 import cat.nbacafe.girona.databinding.FragmentDrinkBinding
 import cat.nbacafe.girona.shared.SharedViewModel
@@ -51,6 +53,27 @@ class CartFragment : Fragment() {
 
         binding.drinkIncluded.drinkNom.text = sharedViewModel.comanda[2]
         binding.drinkIncluded.drinkPreu.text = sharedViewModel.preuItems[2].toString() + " €"
+
+        val preuTotal = sharedViewModel.preuItems[0] +
+                sharedViewModel.preuItems[1] +
+                sharedViewModel.preuItems[2]
+
+        binding.comandaPreuEuros.text = "$preuTotal €"
+
+        binding.cancelaComanda.setOnClickListener { View ->
+            sharedViewModel.clearOrder()
+            view?.findNavController()?.navigate(R.id.action_cartFragment_to_homeFragment)
+        }
+
+        binding.confirmaComanda.setOnClickListener { View ->
+            cartViewModel.insert(
+                sharedViewModel.loggedUser.toString(),
+                sharedViewModel.comanda[0],
+                sharedViewModel.comanda[1],
+                sharedViewModel.comanda[2],
+                preuTotal
+            )
+        }
 
         return binding.root
     }

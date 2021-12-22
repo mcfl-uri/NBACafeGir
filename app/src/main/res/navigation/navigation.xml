@@ -108,5 +108,9 @@
         android:id="@+id/cartFragment"
         android:name="cat.nbacafe.girona.ui.fragments.cart.CartFragment"
         android:label="CartFragment"
-        tools:layout="@layout/cart_fragment"/>
+        tools:layout="@layout/cart_fragment">
+        <action
+            android:id="@+id/action_cartFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
