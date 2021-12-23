@@ -15,9 +15,6 @@ import cat.nbacafe.girona.database.NbaCafeDB
 import cat.nbacafe.girona.database.entities.Beguda
 import cat.nbacafe.girona.databinding.FragmentDrinkBinding
 import cat.nbacafe.girona.shared.SharedViewModel
-import cat.nbacafe.girona.ui.fragments.order.dessert.DessertAdapter
-import cat.nbacafe.girona.ui.fragments.order.dessert.DessertViewModel
-import cat.nbacafe.girona.ui.fragments.order.dessert.DessertViewModelFactory
 
 class DrinkFragment : Fragment() {
 

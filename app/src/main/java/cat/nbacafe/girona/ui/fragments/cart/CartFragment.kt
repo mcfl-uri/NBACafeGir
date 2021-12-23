@@ -1,23 +1,19 @@
 package cat.nbacafe.girona.ui.fragments.cart
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.NbaCafeDB
-import cat.nbacafe.girona.database.entities.Comanda
 import cat.nbacafe.girona.databinding.CartFragmentBinding
-import cat.nbacafe.girona.databinding.FragmentDrinkBinding
 import cat.nbacafe.girona.shared.SharedViewModel
-import cat.nbacafe.girona.ui.fragments.order.dessert.DessertViewModel
-import cat.nbacafe.girona.ui.fragments.order.dessert.DessertViewModelFactory
 
 class CartFragment : Fragment() {
 
