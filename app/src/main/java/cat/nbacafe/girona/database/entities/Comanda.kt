@@ -17,5 +17,7 @@ data class Comanda(
     @ColumnInfo(name = "nom_beguda_comanda")
     var begudaNom: String,
     @ColumnInfo(name = "preu_comanda")
-    var totalComanda: Double
+    var totalComanda: Double,
+    @ColumnInfo(name = "data_comanda")
+    val dataComanda: String
 )
