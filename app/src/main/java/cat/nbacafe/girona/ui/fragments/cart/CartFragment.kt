@@ -39,6 +39,7 @@ class CartFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory).get(CartViewModel::class.java)
 
         binding.comandaId.text = "Número de comanda: " + cartViewModel.getIdNova().toString()
+
         sharedViewModel.loggedUser.observe(this, { loggedUser ->
             binding.comandaUsuari.text = "Usuari: $loggedUser"
         })
@@ -67,7 +68,7 @@ class CartFragment : Fragment() {
 
         binding.confirmaComanda.setOnClickListener { View ->
             cartViewModel.insert(
-                sharedViewModel.loggedUser.toString(),
+                binding.comandaUsuari.text.toString().substring(binding.comandaUsuari.text.toString().indexOf(' ')+1),
                 sharedViewModel.comanda[0],
                 sharedViewModel.comanda[1],
                 sharedViewModel.comanda[2],
