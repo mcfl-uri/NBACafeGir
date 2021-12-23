@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -63,17 +64,23 @@ class CartFragment : Fragment() {
 
         binding.cancelaComanda.setOnClickListener { View ->
             sharedViewModel.clearOrder()
+            Toast.makeText(context, "Comanda cancel·lada", Toast.LENGTH_LONG).show()
             view?.findNavController()?.navigate(R.id.action_cartFragment_to_homeFragment)
         }
 
         binding.confirmaComanda.setOnClickListener { View ->
             cartViewModel.insert(
-                binding.comandaUsuari.text.toString().substring(binding.comandaUsuari.text.toString().indexOf(' ')+1),
+                binding.comandaUsuari.text.toString().substring(
+                    binding.comandaUsuari.text.toString().indexOf(' ') + 1
+                ),
                 sharedViewModel.comanda[0],
                 sharedViewModel.comanda[1],
                 sharedViewModel.comanda[2],
                 preuTotal
             )
+
+            Toast.makeText(context, "Comanda realitzada", Toast.LENGTH_LONG).show()
+            view?.findNavController()?.navigate(R.id.action_cartFragment_to_homeFragment)
         }
 
         return binding.root
