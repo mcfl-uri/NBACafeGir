@@ -18,11 +18,23 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
 
+        <ImageView
+            android:id="@+id/NBALogo"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nbacafelogo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background"
+            app:layout_constraintVertical_bias="0.063" />
+
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/comandesText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/salaryman"
+            android:fontFamily="@font/montserrat"
             android:text="Les teves comandes"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,8 +42,37 @@
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.165" />
+            app:layout_constraintVertical_bias="0.275" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/comandesRecycler"
+            android:layout_width="400dp"
+            android:layout_height="350dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comandesText"
+            app:layout_constraintVertical_bias="0.0"
+            android:background="@drawable/layout_bg_transparent"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/enrereButton"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#C9082A"
+            android:fontFamily="@font/montserrat"
+            android:text="Enrere"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comandesRecycler"
+            app:layout_constraintVertical_bias="0.45" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

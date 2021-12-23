@@ -66,9 +66,7 @@ class CartFragment : Fragment() {
 
         binding.confirmaComanda.setOnClickListener { View ->
             cartViewModel.insert(
-                binding.comandaUsuari.text.toString().substring(
-                    binding.comandaUsuari.text.toString().indexOf(' ') + 1
-                ),
+                sharedViewModel.getLoggedUser(),
                 sharedViewModel.comanda[0],
                 sharedViewModel.comanda[1],
                 sharedViewModel.comanda[2],

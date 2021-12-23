@@ -12,7 +12,7 @@ interface ComandaDao {
     suspend fun insert(comanda: Comanda)
 
     @Query("SELECT * FROM Comanda WHERE nom_usuari_comanda = :username")
-    fun getComandesUser(username: String): Comanda
+    fun getComandesUser(username: String): List<Comanda>
 
     @Query("SELECT idComanda FROM Comanda ORDER BY idComanda DESC LIMIT 1")
     fun getLastComanda(): Int

@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
         Postre::class,
         Sandwich::class,
         Usuari::class],
-    version = 5,
+    version = 6,
     exportSchema = false
 )
 abstract class NbaCafeDB : RoomDatabase() {

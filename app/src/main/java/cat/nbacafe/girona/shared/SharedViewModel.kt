@@ -17,6 +17,10 @@ class SharedViewModel : ViewModel() {
         _loggedUser.value = username
     }
 
+    fun getLoggedUser() : String {
+        return _loggedUser.value.toString()
+    }
+
     fun addCourse(nomItem: String, preuItem: Double, posicio: Int) {
         comanda[posicio] = nomItem
         preuItems[posicio] = preuItem
