@@ -9,25 +9,40 @@
             android:icon="@drawable/home"
             android:title="Inici" />
 
-        <item android:title="El meu compte">
+        <item android:title="Comandes">
 
             <menu>
                 <item
                     android:id="@+id/historyFragment"
                     android:icon="@drawable/history"
-                    android:title="Comandes" />
+                    android:title="Historial" />
+
+                <item
+                    android:id="@+id/sandwichesFragment"
+                    android:icon="@drawable/add"
+                    android:title="Nova comanda" />
             </menu>
 
         </item>
 
-        <item
-            android:id="@+id/loginFragment"
-            android:icon="@drawable/login"
-            android:title="Login" />
+        <item android:title="El meu compte">
 
-        <item
-            android:id="@+id/firstFragment"
-            android:icon="@drawable/logout"
-            android:title="Logout" />
+            <menu>
+                <item
+                    android:id="@+id/loginFragment"
+                    android:icon="@drawable/login"
+                    android:title="Login" />
+
+                <item
+                    android:id="@+id/firstFragment"
+                    android:icon="@drawable/logout"
+                    android:title="Logout" />
+
+                <item
+                    android:id="@+id/registerFragment"
+                    android:icon="@drawable/user"
+                    android:title="Crea un compte" />
+            </menu>
+        </item>
     </group>
 </menu>

@@ -2,6 +2,7 @@ package cat.nbacafe.girona.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -21,6 +22,8 @@ import cat.nbacafe.girona.shared.SharedViewModel
 import cat.nbacafe.girona.ui.fragments.user.UserViewModel
 import com.google.android.material.navigation.NavigationView
 import android.widget.Toast
+import com.google.android.material.internal.NavigationMenu
+import com.google.android.material.internal.NavigationMenuItemView
 
 
 class MainActivity : AppCompatActivity() {
@@ -64,11 +67,21 @@ class MainActivity : AppCompatActivity() {
                 destination.id == R.id.registerFragment
             ) {
 
-                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                navView.menu.findItem(R.id.firstFragment).setVisible(false)
+                navView.menu.findItem(R.id.homeFragment).setVisible(false)
+                navView.menu.findItem(R.id.sandwichesFragment).setVisible(false)
+                navView.menu.findItem(R.id.historyFragment).setVisible(false)
+                navView.menu.findItem(R.id.loginFragment).setVisible(true)
+                navView.menu.findItem(R.id.registerFragment).setVisible(true)
 
             } else {
 
-                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                navView.menu.findItem(R.id.firstFragment).setVisible(true)
+                navView.menu.findItem(R.id.homeFragment).setVisible(true)
+                navView.menu.findItem(R.id.sandwichesFragment).setVisible(true)
+                navView.menu.findItem(R.id.historyFragment).setVisible(true)
+                navView.menu.findItem(R.id.loginFragment).setVisible(false)
+                navView.menu.findItem(R.id.registerFragment).setVisible(false)
 
             }
         }
