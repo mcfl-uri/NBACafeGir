@@ -94,7 +94,7 @@
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/montserrat"
                     android:text="contacte@nbacafegirona.cat"
-                    android:textSize="20sp" />
+                    android:textSize="21sp" />
 
             </TableRow>
 
