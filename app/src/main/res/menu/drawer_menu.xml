@@ -44,5 +44,15 @@
                     android:title="Crea un compte" />
             </menu>
         </item>
+
+        <item android:title="Sobre nosaltres">
+
+            <menu>
+                <item
+                    android:id="@+id/aboutFragment"
+                    android:icon="@drawable/info"
+                    android:title="Contacte" />
+            </menu>
+        </item>
     </group>
 </menu>

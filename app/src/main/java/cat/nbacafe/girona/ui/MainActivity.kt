@@ -22,6 +22,7 @@ import cat.nbacafe.girona.shared.SharedViewModel
 import cat.nbacafe.girona.ui.fragments.user.UserViewModel
 import com.google.android.material.navigation.NavigationView
 import android.widget.Toast
+import cat.nbacafe.girona.NbaCafeApp
 import com.google.android.material.internal.NavigationMenu
 import com.google.android.material.internal.NavigationMenuItemView
 
@@ -62,10 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
 
-            if (destination.id == R.id.firstFragment ||
-                destination.id == R.id.loginFragment ||
-                destination.id == R.id.registerFragment
-            ) {
+            if (NbaCafeApp.preferences.getName() == "") {
 
                 navView.menu.findItem(R.id.firstFragment).setVisible(false)
                 navView.menu.findItem(R.id.homeFragment).setVisible(false)
