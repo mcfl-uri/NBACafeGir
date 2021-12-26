@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
 
-            if (NbaCafeApp.preferences.getName() == "") {
+            if (sharedViewModel.getLoggedUser() == "") {
 
                 navView.menu.findItem(R.id.firstFragment).setVisible(false)
                 navView.menu.findItem(R.id.homeFragment).setVisible(false)
