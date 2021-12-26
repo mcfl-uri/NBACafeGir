@@ -61,6 +61,13 @@ class MainActivity : AppCompatActivity() {
             navUsername.setText(loggedUser)
         })
 
+        navView.menu.findItem(R.id.firstFragment).setOnMenuItemClickListener {
+            NbaCafeApp.preferences.saveName("")
+            sharedViewModel.logUser(NbaCafeApp.preferences.getName())
+            navController.navigate(R.id.firstFragment)
+            false
+        }
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
 
             if (NbaCafeApp.preferences.getName() == "") {
