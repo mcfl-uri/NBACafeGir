@@ -1,30 +1,23 @@
 package cat.nbacafe.girona.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import cat.nbacafe.girona.NbaCafeApp
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.databinding.ActivityMainBinding
 import cat.nbacafe.girona.shared.SharedViewModel
-import cat.nbacafe.girona.ui.fragments.user.UserViewModel
 import com.google.android.material.navigation.NavigationView
-import android.widget.Toast
-import cat.nbacafe.girona.NbaCafeApp
-import com.google.android.material.internal.NavigationMenu
-import com.google.android.material.internal.NavigationMenuItemView
 
 
 class MainActivity : AppCompatActivity() {
@@ -62,9 +55,10 @@ class MainActivity : AppCompatActivity() {
 
         navView.menu.findItem(R.id.firstFragment).setOnMenuItemClickListener {
             NbaCafeApp.preferences.saveName("")
-            sharedViewModel.logUser(NbaCafeApp.preferences.getName())
-            navController.navigate(R.id.firstFragment)
-            false
+            finish()
+            startActivity(intent)
+            overridePendingTransition(0, 0);
+            true
         }
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
