@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             NbaCafeApp.preferences.saveName("")
             finish()
             startActivity(intent)
-            overridePendingTransition(0, 0);
+            overridePendingTransition(0, 0)
             true
         }
 
