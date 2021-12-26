@@ -13,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import cat.nbacafe.girona.NbaCafeApp
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.databinding.ActivityMainBinding
 import cat.nbacafe.girona.shared.SharedViewModel
@@ -51,6 +52,14 @@ class MainActivity : AppCompatActivity() {
         sharedViewModel.loggedUser.observe(this, { loggedUser ->
             navUsername.setText(loggedUser)
         })
+
+        navView.menu.findItem(R.id.firstFragment).setOnMenuItemClickListener {
+            NbaCafeApp.preferences.saveName("")
+            finish()
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+            true
+        }
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
 
