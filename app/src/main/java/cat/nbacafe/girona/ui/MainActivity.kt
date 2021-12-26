@@ -1,16 +1,13 @@
 package cat.nbacafe.girona.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -19,12 +16,7 @@ import androidx.navigation.ui.setupWithNavController
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.databinding.ActivityMainBinding
 import cat.nbacafe.girona.shared.SharedViewModel
-import cat.nbacafe.girona.ui.fragments.user.UserViewModel
 import com.google.android.material.navigation.NavigationView
-import android.widget.Toast
-import cat.nbacafe.girona.NbaCafeApp
-import com.google.android.material.internal.NavigationMenu
-import com.google.android.material.internal.NavigationMenuItemView
 
 
 class MainActivity : AppCompatActivity() {
@@ -55,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 
         val headerView: View = navView.getHeaderView(0)
         val navUsername: TextView = headerView.findViewById(R.id.navHeaderText)
-        navUsername.setText("Prova")
 
         sharedViewModel.loggedUser.observe(this, { loggedUser ->
             navUsername.setText(loggedUser)
@@ -63,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
 
-            if (NbaCafeApp.preferences.getName() == "") {
+            if (sharedViewModel.getLoggedUser() == "") {
 
                 navView.menu.findItem(R.id.firstFragment).setVisible(false)
                 navView.menu.findItem(R.id.homeFragment).setVisible(false)
