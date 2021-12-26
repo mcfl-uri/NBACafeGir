@@ -15,6 +15,7 @@ import cat.nbacafe.girona.R
 import cat.nbacafe.girona.databinding.FirstFragmentBinding
 import cat.nbacafe.girona.databinding.FragmentAboutBinding
 import cat.nbacafe.girona.shared.SharedViewModel
+import java.util.*
 
 class AboutFragment : Fragment() {
 
@@ -34,6 +35,13 @@ class AboutFragment : Fragment() {
             val uri = Uri.parse("http://www.gmail.com")
             val gmail = Intent(Intent.ACTION_VIEW, uri)
             startActivity(gmail)
+        }
+
+        binding.locationRow.setOnClickListener { View ->
+            val uri: String =
+                java.lang.String.format(Locale.ENGLISH, "geo:%f,%f?q=86+Valentí+Almirall+Llozer", 41.99274255451547, 2.812562295815218)
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            requireContext().startActivity(intent)
         }
 
         binding.backFromAboutButton.setOnClickListener { View ->

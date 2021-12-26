@@ -98,6 +98,30 @@
 
             </TableRow>
 
+            <TableRow
+                android:id="@+id/locationRow"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:id="@+id/imatgeAdreca"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="25dp"
+                    android:src="@drawable/ubicacio" />
+
+                <TextView
+                    android:id="@+id/textAdreca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/montserrat"
+                    android:text="C/ Valentí Almirall Llozer, 86"
+                    android:textSize="21sp" />
+
+            </TableRow>
+
         </TableLayout>
 
         <androidx.appcompat.widget.AppCompatButton
