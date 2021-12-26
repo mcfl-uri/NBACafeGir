@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity() {
 
         val headerView: View = navView.getHeaderView(0)
         val navUsername: TextView = headerView.findViewById(R.id.navHeaderText)
-        navUsername.setText("Prova")
 
         sharedViewModel.loggedUser.observe(this, { loggedUser ->
             navUsername.setText(loggedUser)
