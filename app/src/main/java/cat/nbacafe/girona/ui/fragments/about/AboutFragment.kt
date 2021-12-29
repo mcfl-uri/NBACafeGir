@@ -3,19 +3,15 @@ package cat.nbacafe.girona.ui.fragments.about
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import cat.nbacafe.girona.NbaCafeApp
 import cat.nbacafe.girona.R
-import cat.nbacafe.girona.databinding.FirstFragmentBinding
 import cat.nbacafe.girona.databinding.FragmentAboutBinding
-import cat.nbacafe.girona.shared.SharedViewModel
-import java.util.*
 
 class AboutFragment : Fragment() {
 
@@ -38,10 +34,11 @@ class AboutFragment : Fragment() {
         }
 
         binding.locationRow.setOnClickListener { View ->
-            val uri: String =
+            /*val uri: String =
                 java.lang.String.format(Locale.ENGLISH, "geo:%f,%f?q=86+Valentí+Almirall+Llozer", 41.99274255451547, 2.812562295815218)
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
-            requireContext().startActivity(intent)
+            requireContext().startActivity(intent)*/
+            view?.findNavController()?.navigate(R.id.action_aboutFragment_to_mapsFragment)
         }
 
         binding.backFromAboutButton.setOnClickListener { View ->
