@@ -52,6 +52,11 @@
                     android:id="@+id/aboutFragment"
                     android:icon="@drawable/info"
                     android:title="Contacte" />
+
+                <item
+                    android:id="@+id/mapsFragment"
+                    android:icon="@drawable/location"
+                    android:title="Mapa" />
             </menu>
         </item>
     </group>

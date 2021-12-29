@@ -125,4 +125,9 @@
             android:id="@+id/action_aboutFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="cat.nbacafe.girona.ui.fragments.about.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>
