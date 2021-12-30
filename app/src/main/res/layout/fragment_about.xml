@@ -42,14 +42,14 @@
             app:layout_constraintVertical_bias="0.018" />
 
         <TableLayout
-            android:layout_width="402dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textAbout"
-            app:layout_constraintVertical_bias="0.048">
+            app:layout_constraintVertical_bias="0.073">
 
             <TableRow
                 android:id="@+id/telefonRow"
@@ -61,7 +61,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="25dp"
-                    android:src="@drawable/call" />
+                    android:src="@drawable/phonecall" />
 
                 <TextView
                     android:id="@+id/textTelefon"
@@ -70,7 +70,7 @@
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/montserrat"
                     android:text="600 123 456"
-                    android:textSize="20sp" />
+                    android:textSize="17sp" />
 
             </TableRow>
 
@@ -94,7 +94,7 @@
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/montserrat"
                     android:text="contacte@nbacafegirona.cat"
-                    android:textSize="21sp" />
+                    android:textSize="17sp" />
 
             </TableRow>
 
@@ -118,7 +118,7 @@
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/montserrat"
                     android:text="C/ Valentí Almirall Llozer, 86"
-                    android:textSize="21sp" />
+                    android:textSize="17sp" />
 
             </TableRow>
 
@@ -138,7 +138,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976" />
+            app:layout_constraintVertical_bias="0.957" />
 
         <ImageView
             android:id="@+id/imatgeInterior"
