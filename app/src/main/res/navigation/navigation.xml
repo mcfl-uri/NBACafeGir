@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/firstFragment"
         android:name="cat.nbacafe.girona.ui.fragments.first.FirstFragment"
-        android:label="FirstFragment"
+        android:label="NBA Café Girona"
         tools:layout="@layout/first_fragment">
         <action
             android:id="@+id/action_firstFragment_to_loginFragment"
@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="cat.nbacafe.girona.ui.fragments.user.login.LoginFragment"
-        android:label="LoginFragment"
+        android:label="Inicia sessió"
         tools:layout="@layout/login_fragment">
         <action
             android:id="@+id/action_loginFragment_to_firstFragment"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/historyFragment"
         android:name="cat.nbacafe.girona.ui.fragments.history.HistoryFragment"
-        android:label="HistoryFragment"
+        android:label="Historial de comandes"
         tools:layout="@layout/history_fragment">
         <action
             android:id="@+id/action_historyFragment_to_homeFragment"
@@ -47,7 +47,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="cat.nbacafe.girona.ui.fragments.user.register.RegisterFragment"
-        android:label="RegisterFragment"
+        android:label="Registra't"
         tools:layout="@layout/register_fragment">
         <action
             android:id="@+id/action_registerFragment_to_firstFragment"
@@ -56,7 +56,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="cat.nbacafe.girona.ui.fragments.home.HomeFragment"
-        android:label="home_fragment"
+        android:label="Inici"
         tools:layout="@layout/home_fragment" >
         <action
             android:id="@+id/action_homeFragment_to_historyFragment"
@@ -71,7 +71,7 @@
     <fragment
         android:id="@+id/sandwichesFragment"
         android:name="cat.nbacafe.girona.ui.fragments.order.sandwiches.SandwichesFragment"
-        android:label="fragment_sandwiches"
+        android:label="Comanda"
         tools:layout="@layout/fragment_sandwiches" >
         <action
             android:id="@+id/action_sandwichesFragment_to_homeFragment"
@@ -83,7 +83,7 @@
     <fragment
         android:id="@+id/dessertFragment"
         android:name="cat.nbacafe.girona.ui.fragments.order.dessert.DessertFragment"
-        android:label="DessertFragment"
+        android:label="Nova comanda"
         tools:layout="@layout/fragment_dessert">
         <action
             android:id="@+id/action_dessertFragment_to_sandwichesFragment"
@@ -95,7 +95,7 @@
     <fragment
         android:id="@+id/drinkFragment"
         android:name="cat.nbacafe.girona.ui.fragments.order.drink.DrinkFragment"
-        android:label="DrinkFragment"
+        android:label="Nova comanda"
         tools:layout="@layout/fragment_drink">
         <action
             android:id="@+id/action_drinkFragment_to_dessertFragment"
@@ -107,7 +107,7 @@
     <fragment
         android:id="@+id/cartFragment"
         android:name="cat.nbacafe.girona.ui.fragments.cart.CartFragment"
-        android:label="CartFragment"
+        android:label="Nova comanda"
         tools:layout="@layout/cart_fragment">
         <action
             android:id="@+id/action_cartFragment_to_homeFragment"
@@ -116,7 +116,7 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="cat.nbacafe.girona.ui.fragments.about.AboutFragment"
-        android:label="AboutFragment"
+        android:label="Sobre nosaltres"
         tools:layout="@layout/fragment_about">
         <action
             android:id="@+id/action_aboutFragment_to_homeFragment"
