@@ -15,14 +15,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import cat.nbacafe.girona.NbaCafeApp
 import cat.nbacafe.girona.R
-import cat.nbacafe.girona.databinding.ActivityMainBinding
 import cat.nbacafe.girona.shared.SharedViewModel
 import com.google.android.material.navigation.NavigationView
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     val sharedViewModel: SharedViewModel by viewModels()
     var lastPress = System.currentTimeMillis()
@@ -71,6 +69,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
+
+            if (destination.id == R.id.firstFragment && sharedViewModel.getLoggedUser() != "") {
+                navController.navigate(R.id.homeFragment)
+            }
 
             if (sharedViewModel.getLoggedUser() == "") {
 
