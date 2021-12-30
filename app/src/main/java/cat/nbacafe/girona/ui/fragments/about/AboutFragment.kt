@@ -35,10 +35,6 @@ class AboutFragment : Fragment() {
         }
 
         binding.locationRow.setOnClickListener { View ->
-            /*val uri: String =
-                java.lang.String.format(Locale.ENGLISH, "geo:%f,%f?q=86+Valentí+Almirall+Llozer", 41.99274255451547, 2.812562295815218)
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
-            requireContext().startActivity(intent)*/
             view?.findNavController()?.navigate(R.id.action_aboutFragment_to_mapsFragment)
         }
 
