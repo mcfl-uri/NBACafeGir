@@ -20,7 +20,7 @@ class CartViewModel(
 
     fun insert(usuari: String, sandwich: String, postre: String, beguda: String, preu: Double) {
 
-        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm")
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
         val data = sdf.format(Date())
 
         val comanda = Comanda(0, usuari, sandwich, postre, beguda, preu, data)
