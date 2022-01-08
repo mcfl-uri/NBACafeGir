@@ -11,8 +11,7 @@ import cat.nbacafe.girona.database.entities.Postre
 
 class DessertAdapter(
     val dessert: List<Postre>,
-    val favDessert: List<Postre>,
-    val loggedUser: String
+    val favDessert: List<Postre>
 ) :
     RecyclerView.Adapter<DessertAdapter.DessertHolder>() {
 

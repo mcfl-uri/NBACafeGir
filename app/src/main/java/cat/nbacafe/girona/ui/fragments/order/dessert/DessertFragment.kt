@@ -44,16 +44,16 @@ class DessertFragment : Fragment() {
         val dataSource2 = NbaCafeDB.getInstance(application).favDao
         val viewModelFactory2 = FavViewModelFactory(dataSource2, application)
 
-        val favDessertViewModel =
+        val favViewModel =
             ViewModelProvider(this, viewModelFactory2).get(FavViewModel::class.java)
 
         dessert = dessertViewModel.getAll()
-        checkForFavs(favDessertViewModel)
+        checkForFavs(favViewModel)
 
         binding.dessertRecycler.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        val adapter = DessertAdapter(dessert, favDessert, sharedViewModel.getLoggedUser())
+        val adapter = DessertAdapter(dessert, favDessert)
 
         binding.dessertRecycler.adapter = adapter
 
@@ -69,12 +69,12 @@ class DessertFragment : Fragment() {
 
             override fun onFavClick(position: Int) {
 
-                if (!favDessertViewModel.favExists(
+                if (!favViewModel.favExists(
                         sharedViewModel.getLoggedUser(),
                         dessert[position].nomPostre
                     )
                 ) {
-                    favDessertViewModel.insert(
+                    favViewModel.insert(
                         sharedViewModel.getLoggedUser(),
                         dessert[position].nomPostre
                     )
@@ -82,12 +82,12 @@ class DessertFragment : Fragment() {
                         context, dessert[position].nomPostre + " afegit a preferits",
                         Toast.LENGTH_SHORT
                     ).show()
-                } else if (favDessertViewModel.favExists(
+                } else if (favViewModel.favExists(
                         sharedViewModel.getLoggedUser(),
                         dessert[position].nomPostre
                     )
                 ) {
-                    favDessertViewModel.delete(
+                    favViewModel.delete(
                         sharedViewModel.getLoggedUser(),
                         dessert[position].nomPostre
                     )
@@ -96,7 +96,7 @@ class DessertFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                checkForFavs(favDessertViewModel)
+                checkForFavs(favViewModel)
             }
 
         })
