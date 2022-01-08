@@ -1,10 +1,12 @@
 package cat.nbacafe.girona.database.daos
 
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import cat.nbacafe.girona.database.entities.Favourite
 
+@Dao
 interface FavouriteDao {
     @Insert
     suspend fun insert(favourite: Favourite)

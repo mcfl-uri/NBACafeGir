@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -21,7 +20,7 @@ import cat.nbacafe.girona.shared.SharedViewModel
 class DessertFragment : Fragment() {
 
     var dessert = listOf<Postre>()
-    var favDessert = listOf<Postre>()
+    val favDessert: MutableList<Postre> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,9 +38,20 @@ class DessertFragment : Fragment() {
         val dessertViewModel =
             ViewModelProvider(this, viewModelFactory).get(DessertViewModel::class.java)
 
+        val dataSource2 = NbaCafeDB.getInstance(application).favDao
+        val viewModelFactory2 = FavDessertViewModelFactory(dataSource2, application)
+
+        val favDessertViewModel =
+            ViewModelProvider(this, viewModelFactory2).get(FavDessertViewModel::class.java)
+
         val sharedViewModel: SharedViewModel by activityViewModels()
 
         dessert = dessertViewModel.getAll()
+        for (i in dessert.indices) {
+            if (favDessertViewModel.favExists(sharedViewModel.getLoggedUser(), dessert[i].nomPostre)) {
+                favDessert.add(dessert[i])
+            }
+        }
 
         binding.dessertRecycler.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -52,12 +62,20 @@ class DessertFragment : Fragment() {
 
         adapter.setOnItemClickListener(object : DessertAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
-                sharedViewModel.addCourse(dessert[position].nomPostre, dessert[position].preuPostre, 1)
+                sharedViewModel.addCourse(
+                    dessert[position].nomPostre,
+                    dessert[position].preuPostre,
+                    1
+                )
                 view?.findNavController()?.navigate(R.id.action_dessertFragment_to_drinkFragment)
             }
 
             override fun onFavClick(position: Int) {
                 Toast.makeText(context, dessert[position].nomPostre, Toast.LENGTH_LONG).show()
+                if (!favDessertViewModel.favExists(sharedViewModel.getLoggedUser(), dessert[position].nomPostre))
+                    favDessertViewModel.insert(sharedViewModel.getLoggedUser(), dessert[position].nomPostre)
+                else
+                    favDessertViewModel.delete(sharedViewModel.getLoggedUser(), dessert[position].nomPostre)
             }
 
         })
