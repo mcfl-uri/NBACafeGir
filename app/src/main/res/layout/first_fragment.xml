@@ -18,6 +18,7 @@ xmlns:tools="http://schemas.android.com/tools">
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
+
     <ImageView
         android:id="@+id/NBALogo"
         android:layout_width="300dp"
@@ -28,8 +29,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background"
-        app:layout_constraintVertical_bias="0.094" />
-
+        app:layout_constraintVertical_bias="0.214" />
 
     <TextView
         android:id="@+id/textInici"

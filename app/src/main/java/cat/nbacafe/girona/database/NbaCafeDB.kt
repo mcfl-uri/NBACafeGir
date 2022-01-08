@@ -16,8 +16,9 @@ import kotlinx.coroutines.launch
         Comanda::class,
         Postre::class,
         Sandwich::class,
-        Usuari::class],
-    version = 6,
+        Usuari::class,
+        Favourite::class],
+    version = 8,
     exportSchema = false
 )
 abstract class NbaCafeDB : RoomDatabase() {
@@ -27,6 +28,7 @@ abstract class NbaCafeDB : RoomDatabase() {
     abstract val postreDao: PostreDao
     abstract val sandwichDao: SandwichDao
     abstract val usuariDao: UsuariDao
+    abstract val favDao: FavouriteDao
 
     companion object {
 
@@ -60,16 +62,86 @@ abstract class NbaCafeDB : RoomDatabase() {
         private fun prepopulateDb(db: NbaCafeDB) {
             GlobalScope.launch {
                 //Sandwichs
-                db.sandwichDao.insert(Sandwich(0, "New York", "Originari de Harlem i el Bronx. Ingredients: carn de vedella i ceba mòlta/picada, formatge americà fos, enciam, tomàquets i condiments en un hero roll.", 6.5))
-                db.sandwichDao.insert(Sandwich(0, "San Francisco", "Consisteix en carn rostida a rodanxes fines, pebre negre, mostassa i rave picant sobre pà de baguette que s'ha submergit en sucs de paella o salsa.", 6.0))
-                db.sandwichDao.insert(Sandwich(0, "Phoenix", "Un hotdog embolicat en bacon, amb mongetes pintas, ceba, tomàquet, salsa de bitxo jalapeño i maiones", 5.5))
-                db.sandwichDao.insert(Sandwich(0, "Miami vice", "Es tracta d'un bocata amb porc rostit, pernil, formatge suís, cogombrets adobats, mostassa.", 8.5))
-                db.sandwichDao.insert(Sandwich(0, "Chicago", "Un frankfurter de vedella amb pa de llavors de rosella, cobert amb tomàquet, mostassa groga, condiment dolç, ceba picada, pebrots i una mica de sal d'api.", 4.5))
-                db.sandwichDao.insert(Sandwich(0, "Portland", "Una baguette farcida de porc, maionesa, coriandre, suc de llima, cogombre i ceba.", 7.5))
-                db.sandwichDao.insert(Sandwich(0, "Minnesota", "La carn mòlta saltejada i la carn d'embotit es barregen en un panet, cobertes amb salsa marinara i mozzarella, rostides a la perfecció.", 8.5))
-                db.sandwichDao.insert(Sandwich(0, "Oklahoma", "Fet d'una hamburguesa amb una gran quantitat de ceba tallada a rodanxes aixafada a la carn. A mesura que es cou, les cebes s'infonen a la carn i els sucs de la carn cobreixen les cebes.", 4.5))
-                db.sandwichDao.insert(Sandwich(0, "Utah", "Dos tipus de vedella: una hamburguesa a la brasa i pastrami a rodanxes fines, natch, servides sobre un pa de sèsam degotant amb fry sauce i cobert amb tomàquets, enciam ratllat i ceba.", 10.5))
-                db.sandwichDao.insert(Sandwich(0, "Houston", "Un costell, carregat amb carn de vedella a la brasa picada o a rodanxes, servit en un wrap", 8.5))
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "New York",
+                        "Originari de Harlem i el Bronx. Ingredients: carn de vedella i ceba mòlta/picada, formatge americà fos, enciam, tomàquets i condiments en un hero roll.",
+                        6.5
+                    )
+                )
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "San Francisco",
+                        "Consisteix en carn rostida a rodanxes fines, pebre negre, mostassa i rave picant sobre pà de baguette que s'ha submergit en sucs de paella o salsa.",
+                        6.0
+                    )
+                )
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "Phoenix",
+                        "Un hotdog embolicat en bacon, amb mongetes pintas, ceba, tomàquet, salsa de bitxo jalapeño i maiones",
+                        5.5
+                    )
+                )
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "Miami vice",
+                        "Es tracta d'un bocata amb porc rostit, pernil, formatge suís, cogombrets adobats, mostassa.",
+                        8.5
+                    )
+                )
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "Chicago",
+                        "Un frankfurter de vedella amb pa de llavors de rosella, cobert amb tomàquet, mostassa groga, condiment dolç, ceba picada, pebrots i una mica de sal d'api.",
+                        4.5
+                    )
+                )
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "Portland",
+                        "Una baguette farcida de porc, maionesa, coriandre, suc de llima, cogombre i ceba.",
+                        7.5
+                    )
+                )
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "Minnesota",
+                        "La carn mòlta saltejada i la carn d'embotit es barregen en un panet, cobertes amb salsa marinara i mozzarella, rostides a la perfecció.",
+                        8.5
+                    )
+                )
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "Oklahoma",
+                        "Fet d'una hamburguesa amb una gran quantitat de ceba tallada a rodanxes aixafada a la carn. A mesura que es cou, les cebes s'infonen a la carn i els sucs de la carn cobreixen les cebes.",
+                        4.5
+                    )
+                )
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "Utah",
+                        "Dos tipus de vedella: una hamburguesa a la brasa i pastrami a rodanxes fines, natch, servides sobre un pa de sèsam degotant amb fry sauce i cobert amb tomàquets, enciam ratllat i ceba.",
+                        10.5
+                    )
+                )
+                db.sandwichDao.insert(
+                    Sandwich(
+                        0,
+                        "Houston",
+                        "Un costell, carregat amb carn de vedella a la brasa picada o a rodanxes, servit en un wrap",
+                        8.5
+                    )
+                )
 
                 //Postres
                 db.postreDao.insert(Postre(0, "Denver", "Pastís de prèssec", 5.5))
