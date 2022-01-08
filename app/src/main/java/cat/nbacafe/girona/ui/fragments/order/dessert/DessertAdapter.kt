@@ -72,6 +72,10 @@ class DessertAdapter(
             if (dessert[position] == favDessert[i]) {
                 holder.favBtn.setImageResource(R.drawable.ic_baseline_favorite_24)
                 holder.favBtn.tag = "fav"
+                break
+            } else {
+                holder.favBtn.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                holder.favBtn.tag = "nonfav"
             }
         }
         holder.bind(dessert[position])
