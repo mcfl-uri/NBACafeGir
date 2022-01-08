@@ -13,6 +13,7 @@ import cat.nbacafe.girona.shared.SharedViewModel
 
 class DessertAdapter(
     val dessert: List<Postre>,
+    val favDessert: List<Postre>,
     val loggedUser: String
 ) :
     RecyclerView.Adapter<DessertAdapter.DessertHolder>() {
@@ -32,6 +33,9 @@ class DessertAdapter(
 
     class DessertHolder(val view: View, listener: onItemClickListener) :
         RecyclerView.ViewHolder(view) {
+
+        val favBtn: ImageView = view.findViewById(R.id.favDessertBtn)
+
         fun bind(dessert: Postre) {
             view.findViewById<TextView>(R.id.dessertNom).text = dessert.nomPostre
             view.findViewById<TextView>(R.id.dessertDesc).text = dessert.descPostre
@@ -40,10 +44,11 @@ class DessertAdapter(
         }
 
         init {
+
             itemView.setOnClickListener {
                 listener.onItemClick(adapterPosition)
             }
-            val favBtn: ImageView = view.findViewById(R.id.favDessertBtn)
+
             favBtn.setOnClickListener {
                 if (favBtn.tag.toString() == "nonfav") {
                     favBtn.setImageResource(R.drawable.ic_baseline_favorite_24)
@@ -67,7 +72,19 @@ class DessertAdapter(
     }
 
     override fun onBindViewHolder(holder: DessertHolder, position: Int) {
+        for (i in favDessert.indices) {
+            if (dessert[position] == favDessert[i])
+                holder.favBtn.setImageResource(R.drawable.ic_baseline_favorite_24)
+        }
         holder.bind(dessert[position])
     }
 
+    private fun defineFavIcons(dessertHolder: DessertHolder) {
+        for (i in dessert.indices) {
+            for (n in favDessert.indices) {
+                if (dessert[i] == favDessert[n])
+                    dessertHolder.favBtn.setImageResource(R.drawable.ic_baseline_favorite_24)
+            }
+        }
+    }
 }
