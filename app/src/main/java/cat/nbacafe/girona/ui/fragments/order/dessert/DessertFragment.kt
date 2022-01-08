@@ -80,7 +80,7 @@ class DessertFragment : Fragment() {
                     )
                     Toast.makeText(
                         context, dessert[position].nomPostre + " afegit a preferits",
-                        Toast.LENGTH_LONG
+                        Toast.LENGTH_SHORT
                     ).show()
                 } else if (favDessertViewModel.favExists(
                         sharedViewModel.getLoggedUser(),
@@ -93,7 +93,7 @@ class DessertFragment : Fragment() {
                     )
                     Toast.makeText(
                         context, dessert[position].nomPostre + " eliminat de preferits",
-                        Toast.LENGTH_LONG
+                        Toast.LENGTH_SHORT
                     ).show()
                 }
                 checkForFavs(favDessertViewModel)
