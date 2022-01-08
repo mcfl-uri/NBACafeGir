@@ -1,4 +1,4 @@
-package cat.nbacafe.girona.ui.fragments.order.dessert
+package cat.nbacafe.girona.ui.fragments.order
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -7,7 +7,7 @@ import cat.nbacafe.girona.database.daos.FavouriteDao
 import cat.nbacafe.girona.database.entities.Favourite
 import kotlinx.coroutines.launch
 
-class FavDessertViewModel(
+class FavViewModel(
     private val dataSource: FavouriteDao,
     application: Application
 ) : AndroidViewModel(application) {

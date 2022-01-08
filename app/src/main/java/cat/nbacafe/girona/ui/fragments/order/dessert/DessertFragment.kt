@@ -16,11 +16,13 @@ import cat.nbacafe.girona.database.NbaCafeDB
 import cat.nbacafe.girona.database.entities.Postre
 import cat.nbacafe.girona.databinding.FragmentDessertBinding
 import cat.nbacafe.girona.shared.SharedViewModel
+import cat.nbacafe.girona.ui.fragments.order.FavViewModel
+import cat.nbacafe.girona.ui.fragments.order.FavViewModelFactory
 
 class DessertFragment : Fragment() {
 
     var dessert = listOf<Postre>()
-    var favDessert: MutableList<Postre> = mutableListOf()
+    private var favDessert: MutableList<Postre> = mutableListOf()
     val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -40,10 +42,10 @@ class DessertFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory).get(DessertViewModel::class.java)
 
         val dataSource2 = NbaCafeDB.getInstance(application).favDao
-        val viewModelFactory2 = FavDessertViewModelFactory(dataSource2, application)
+        val viewModelFactory2 = FavViewModelFactory(dataSource2, application)
 
         val favDessertViewModel =
-            ViewModelProvider(this, viewModelFactory2).get(FavDessertViewModel::class.java)
+            ViewModelProvider(this, viewModelFactory2).get(FavViewModel::class.java)
 
         dessert = dessertViewModel.getAll()
         checkForFavs(favDessertViewModel)
@@ -66,15 +68,35 @@ class DessertFragment : Fragment() {
             }
 
             override fun onFavClick(position: Int) {
-                Toast.makeText(context, dessert[position].nomPostre, Toast.LENGTH_LONG).show()
-                if (!favDessertViewModel.favExists(sharedViewModel.getLoggedUser(), dessert[position].nomPostre))
-                    favDessertViewModel.insert(sharedViewModel.getLoggedUser(), dessert[position].nomPostre)
 
-                else if (favDessertViewModel.favExists(sharedViewModel.getLoggedUser(), dessert[position].nomPostre))
-                    favDessertViewModel.delete(sharedViewModel.getLoggedUser(), dessert[position].nomPostre)
-
+                if (!favDessertViewModel.favExists(
+                        sharedViewModel.getLoggedUser(),
+                        dessert[position].nomPostre
+                    )
+                ) {
+                    favDessertViewModel.insert(
+                        sharedViewModel.getLoggedUser(),
+                        dessert[position].nomPostre
+                    )
+                    Toast.makeText(
+                        context, dessert[position].nomPostre + " afegit a preferits",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else if (favDessertViewModel.favExists(
+                        sharedViewModel.getLoggedUser(),
+                        dessert[position].nomPostre
+                    )
+                ) {
+                    favDessertViewModel.delete(
+                        sharedViewModel.getLoggedUser(),
+                        dessert[position].nomPostre
+                    )
+                    Toast.makeText(
+                        context, dessert[position].nomPostre + " eliminat de preferits",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
                 checkForFavs(favDessertViewModel)
-                adapter.notifyDataSetChanged()
             }
 
         })
@@ -89,10 +111,10 @@ class DessertFragment : Fragment() {
         return binding.root
     }
 
-    fun checkForFavs(favDessertViewModel: FavDessertViewModel) {
+    fun checkForFavs(favViewModel: FavViewModel) {
         favDessert.clear()
         for (i in dessert.indices) {
-            if (favDessertViewModel.favExists(sharedViewModel.getLoggedUser(), dessert[i].nomPostre)) {
+            if (favViewModel.favExists(sharedViewModel.getLoggedUser(), dessert[i].nomPostre)) {
                 favDessert.add(dessert[i])
             }
         }

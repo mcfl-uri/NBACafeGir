@@ -5,11 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.entities.Postre
-import cat.nbacafe.girona.shared.SharedViewModel
 
 class DessertAdapter(
     val dessert: List<Postre>,
@@ -50,15 +48,14 @@ class DessertAdapter(
             }
 
             favBtn.setOnClickListener {
+                listener.onFavClick(adapterPosition)
                 if (favBtn.tag.toString() == "nonfav") {
                     favBtn.setImageResource(R.drawable.ic_baseline_favorite_24)
-                    favBtn.setTag("fav")
-                } else {
+                    favBtn.tag = "fav"
+                } else if (favBtn.tag.toString() == "fav") {
                     favBtn.setImageResource(R.drawable.ic_baseline_favorite_border_24)
-                    favBtn.setTag("nonfav")
+                    favBtn.tag = "nonfav"
                 }
-
-                listener.onFavClick(adapterPosition)
             }
         }
     }
@@ -66,25 +63,19 @@ class DessertAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DessertHolder {
 
         val dh = LayoutInflater.from(parent.context)
-                .inflate(R.layout.dessert_cell_layout, parent, false)
+            .inflate(R.layout.dessert_cell_layout, parent, false)
 
         return DessertHolder(dh, mListener)
     }
 
     override fun onBindViewHolder(holder: DessertHolder, position: Int) {
         for (i in favDessert.indices) {
-            if (dessert[position] == favDessert[i])
+            if (dessert[position] == favDessert[i]) {
                 holder.favBtn.setImageResource(R.drawable.ic_baseline_favorite_24)
+                holder.favBtn.tag = "fav"
+            }
         }
         holder.bind(dessert[position])
     }
 
-    private fun defineFavIcons(dessertHolder: DessertHolder) {
-        for (i in dessert.indices) {
-            for (n in favDessert.indices) {
-                if (dessert[i] == favDessert[n])
-                    dessertHolder.favBtn.setImageResource(R.drawable.ic_baseline_favorite_24)
-            }
-        }
-    }
 }

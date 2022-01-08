@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.NbaCafeDB
+import cat.nbacafe.girona.database.entities.Postre
 import cat.nbacafe.girona.database.entities.Sandwich
 import cat.nbacafe.girona.databinding.FragmentSandwichesBinding
 import cat.nbacafe.girona.shared.SharedViewModel
@@ -21,6 +22,8 @@ import cat.nbacafe.girona.shared.SharedViewModel
 class SandwichesFragment : Fragment() {
 
     var sandwiches = listOf<Sandwich>()
+    private var favDessert: MutableList<Postre> = mutableListOf()
+    val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,8 +40,6 @@ class SandwichesFragment : Fragment() {
 
         val sandwichViewModel =
             ViewModelProvider(this, viewModelFactory).get(SandwichViewModel::class.java)
-
-        val sharedViewModel: SharedViewModel by activityViewModels()
 
         sandwiches = sandwichViewModel.getAll()
 
