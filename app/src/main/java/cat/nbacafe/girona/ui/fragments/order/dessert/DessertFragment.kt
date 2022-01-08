@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -20,6 +21,7 @@ import cat.nbacafe.girona.shared.SharedViewModel
 class DessertFragment : Fragment() {
 
     var dessert = listOf<Postre>()
+    var favDessert = listOf<Postre>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,12 +46,9 @@ class DessertFragment : Fragment() {
         binding.dessertRecycler.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        val adapter = DessertAdapter(dessert)
+        val adapter = DessertAdapter(dessert, sharedViewModel.getLoggedUser())
 
         binding.dessertRecycler.adapter = adapter
-
-        val nonFav = view?.findViewById<ImageView>(R.id.nonFavSandwich)
-        val fav = view?.findViewById<ImageView>(R.id.favSandwich)
 
         adapter.setOnItemClickListener(object : DessertAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
@@ -57,12 +56,8 @@ class DessertFragment : Fragment() {
                 view?.findNavController()?.navigate(R.id.action_dessertFragment_to_drinkFragment)
             }
 
-            override fun onAddFavClick(position: Int) {
-                fav
-            }
-
-            override fun onRemFavClick(position: Int) {
-                TODO("Not yet implemented")
+            override fun onFavClick(position: Int) {
+                Toast.makeText(context, dessert[position].nomPostre, Toast.LENGTH_LONG).show()
             }
 
         })

@@ -5,14 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import cat.nbacafe.girona.R
 import cat.nbacafe.girona.database.entities.Postre
-import cat.nbacafe.girona.database.entities.Sandwich
-import cat.nbacafe.girona.ui.fragments.order.sandwiches.SandwichAdapter
+import cat.nbacafe.girona.shared.SharedViewModel
 
 class DessertAdapter(
-    val dessert: List<Postre>
+    val dessert: List<Postre>,
+    val loggedUser: String
 ) :
     RecyclerView.Adapter<DessertAdapter.DessertHolder>() {
 
@@ -20,8 +21,7 @@ class DessertAdapter(
 
     interface onItemClickListener {
         fun onItemClick(position: Int)
-        fun onAddFavClick(position: Int)
-        fun onRemFavClick(position: Int)
+        fun onFavClick(position: Int)
     }
 
     fun setOnItemClickListener(listener: onItemClickListener) {
@@ -43,13 +43,17 @@ class DessertAdapter(
             itemView.setOnClickListener {
                 listener.onItemClick(adapterPosition)
             }
-            val addFav: ImageView = view.findViewById(R.id.nonFavSandwich)
-            addFav.setOnClickListener {
-                listener.onAddFavClick(adapterPosition)
-            }
-            val remFav: ImageView = view.findViewById(R.id.favSandwich)
-            remFav.setOnClickListener {
-                listener.onRemFavClick(adapterPosition)
+            val favBtn: ImageView = view.findViewById(R.id.favDessertBtn)
+            favBtn.setOnClickListener {
+                if (favBtn.tag.toString() == "nonfav") {
+                    favBtn.setImageResource(R.drawable.ic_baseline_favorite_24)
+                    favBtn.setTag("fav")
+                } else {
+                    favBtn.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                    favBtn.setTag("nonfav")
+                }
+
+                listener.onFavClick(adapterPosition)
             }
         }
     }
