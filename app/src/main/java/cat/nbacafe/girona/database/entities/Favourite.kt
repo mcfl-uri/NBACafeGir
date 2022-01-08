@@ -8,5 +8,5 @@ data class Favourite(
     @ColumnInfo(name = "usuari_fav")
     var favUsername: String,
     @ColumnInfo(name = "nom_course_fav")
-    var favCourseName: String,
+    var favCourseName: String
 )
