@@ -28,7 +28,7 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background"
-            app:layout_constraintVertical_bias="0.097" />
+            app:layout_constraintVertical_bias="0.068" />
 
         <TextView
             android:id="@+id/textComanda"
@@ -81,7 +81,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/comandaUsuari"
-            app:layout_constraintVertical_bias="0.111">
+            app:layout_constraintVertical_bias="0.1">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -133,7 +133,7 @@
             app:layout_constraintHorizontal_bias="0.705"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollComanda"
-            app:layout_constraintVertical_bias="0.135" />
+            app:layout_constraintVertical_bias="0.115" />
 
         <TextView
             android:id="@+id/comandaPreuEuros"
@@ -147,13 +147,13 @@
             app:layout_constraintHorizontal_bias="0.926"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollComanda"
-            app:layout_constraintVertical_bias="0.159" />
+            app:layout_constraintVertical_bias="0.135" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cancelaComanda"
-            android:layout_width="185dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#C9082A"
             android:fontFamily="@font/montserrat"
@@ -162,16 +162,14 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollComanda"
             app:layout_constraintVertical_bias="1.0" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/confirmaComanda"
-            android:layout_width="185dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#17408B"
             android:fontFamily="@font/montserrat"
@@ -180,10 +178,9 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.929"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollComanda"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

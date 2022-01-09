@@ -26,7 +26,7 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background"
-            app:layout_constraintVertical_bias="0.152" />
+            app:layout_constraintVertical_bias="0.087" />
 
         <TextView
             android:id="@+id/textInici"
@@ -37,16 +37,15 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/NBALogo"
-            app:layout_constraintVertical_bias="0.033" />
+            app:layout_constraintVertical_bias="0.023" />
 
         <EditText
             android:id="@+id/email"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/rounded_edit_text"
             android:ems="10"
             android:fontFamily="@font/montserrat"
@@ -154,9 +153,9 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cancelaButton"
-            android:layout_width="145dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#C9082A"
             android:fontFamily="@font/montserrat"
@@ -165,14 +164,13 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.206"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_password2"
             app:layout_constraintVertical_bias="1.0" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/endavantButton"
-            android:layout_width="145dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
             android:background="@drawable/rounded_button"
@@ -183,10 +181,9 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.789"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_password2"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
