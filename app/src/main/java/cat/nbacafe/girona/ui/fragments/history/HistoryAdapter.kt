@@ -3,6 +3,7 @@ package cat.nbacafe.girona.ui.fragments.history
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cat.nbacafe.girona.R
@@ -22,13 +23,16 @@ class HistoryAdapter(
             view.findViewById<TextView>(R.id.sandwichNom).text = comanda.sandwichNom
             view.findViewById<TextView>(R.id.sandwichDesc).text = ""
             view.findViewById<TextView>(R.id.sandwichPreu).text = ""
+            view.findViewById<ImageView>(R.id.favSandwichBtn).visibility = View.GONE
 
             view.findViewById<TextView>(R.id.dessertNom).text = comanda.postreNom
             view.findViewById<TextView>(R.id.dessertPreu).text = ""
             view.findViewById<TextView>(R.id.dessertDesc).text = ""
+            view.findViewById<ImageView>(R.id.favDessertBtn).visibility = View.GONE
 
             view.findViewById<TextView>(R.id.drinkNom).text = comanda.begudaNom
             view.findViewById<TextView>(R.id.drinkPreu).text = ""
+            view.findViewById<ImageView>(R.id.favDrinkBtn).visibility = View.GONE
 
             view.findViewById<TextView>(R.id.totalComanda).text =
                 "Preu total: " + comanda.totalComanda.toString() + " €"
