@@ -62,7 +62,7 @@ class DrinkFragment : Fragment() {
                 sharedViewModel.addCourse(
                     drink[position].nomBeguda,
                     drink[position].preuBeguda,
-                    1
+                    2
                 )
                 view?.findNavController()
                     ?.navigate(R.id.action_drinkFragment_to_cartFragment)

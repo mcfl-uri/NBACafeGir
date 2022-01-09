@@ -62,7 +62,7 @@ class SandwichesFragment : Fragment() {
                 sharedViewModel.addCourse(
                     sandwiches[position].nomSandwich,
                     sandwiches[position].preuSandwich,
-                    1
+                    0
                 )
                 view?.findNavController()
                     ?.navigate(R.id.action_sandwichesFragment_to_dessertFragment)
