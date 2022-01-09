@@ -26,6 +26,15 @@ class CartFragment : Fragment() {
             R.layout.cart_fragment, container, false
         )
 
+        if (binding.sandwichIncluded.favSandwichBtn.visibility == View.VISIBLE)
+            binding.sandwichIncluded.favSandwichBtn.visibility = View.GONE
+
+        if (binding.dessertincluded.favDessertBtn.visibility == View.VISIBLE)
+            binding.dessertincluded.favDessertBtn.visibility = View.GONE
+
+        if (binding.drinkIncluded.favDrinkBtn.visibility == View.VISIBLE)
+            binding.drinkIncluded.favDrinkBtn.visibility = View.GONE
+
         val sharedViewModel: SharedViewModel by activityViewModels()
 
         val application = requireNotNull(this.activity).application
