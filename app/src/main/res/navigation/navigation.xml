@@ -71,7 +71,7 @@
     <fragment
         android:id="@+id/sandwichesFragment"
         android:name="cat.nbacafe.girona.ui.fragments.order.sandwiches.SandwichesFragment"
-        android:label="Comanda"
+        android:label="Nova comanda"
         tools:layout="@layout/fragment_sandwiches" >
         <action
             android:id="@+id/action_sandwichesFragment_to_homeFragment"
