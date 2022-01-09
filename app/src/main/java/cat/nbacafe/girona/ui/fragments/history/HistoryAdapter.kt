@@ -35,7 +35,7 @@ class HistoryAdapter(
             view.findViewById<TextView>(R.id.dataComanda).text =
                 "Data: " + comanda.dataComanda
             view.findViewById<TextView>(R.id.numComanda).text =
-                "Número de comanda: " + comanda.idComanda
+                "Codi de comanda: " + comanda.idComanda
 
         }
 

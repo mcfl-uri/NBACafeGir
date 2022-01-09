@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:id="@+id/numComanda"
-                android:text="Número de comanda: "
+                android:text="Codi de comanda: "
                 android:fontFamily="@font/montserrat"
                 android:textSize="18sp"
                 android:layout_marginBottom="15dp"
