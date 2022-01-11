@@ -26,7 +26,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.065" />
 
     <TextView
         android:id="@+id/textInici"
@@ -75,7 +75,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginUser"
-        app:layout_constraintVertical_bias="0.192"
+        app:layout_constraintVertical_bias="0.142"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/white">
 
@@ -109,7 +109,7 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_password"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.85" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/endavantButton"

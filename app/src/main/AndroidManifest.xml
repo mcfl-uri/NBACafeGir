@@ -46,4 +46,8 @@
             android:exported="true" />
     </application>
 
+    <queries>
+        <package android:name="com.google.android.gms"/>
+    </queries>
+
 </manifest>
