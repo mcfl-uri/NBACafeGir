@@ -42,6 +42,10 @@ class HistoryFragment : Fragment() {
 
         comandes = historyViewModel.getComandesUser(username)
 
+        if (comandes.isEmpty()) {
+            binding.comandesText.text = "Encara no tens comandes"
+        }
+
         binding.comandesRecycler.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
