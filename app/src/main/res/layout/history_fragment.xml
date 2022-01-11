@@ -28,7 +28,7 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background"
-            app:layout_constraintVertical_bias="0.063" />
+            app:layout_constraintVertical_bias="0.025" />
 
         <TextView
             android:id="@+id/comandesText"
@@ -41,22 +41,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.275" />
+            app:layout_constraintTop_toBottomOf="@+id/NBALogo"
+            app:layout_constraintVertical_bias="0.02" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/comandesRecycler"
             android:layout_width="400dp"
             android:layout_height="350dp"
-            android:layout_marginTop="40dp"
+            android:background="@drawable/layout_bg_transparent"
             app:layout_constraintBottom_toBottomOf="@+id/background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/comandesText"
-            app:layout_constraintVertical_bias="0.0"
-            android:background="@drawable/layout_bg_transparent"
-            />
+            app:layout_constraintVertical_bias="0.2" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/enrereButton"
